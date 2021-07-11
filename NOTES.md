@@ -21,4 +21,5 @@ key data strcture of process context
 Process level context switch
 Thread  level context switch
 
+> Nginx and Unicorn  communicate via local socket
 

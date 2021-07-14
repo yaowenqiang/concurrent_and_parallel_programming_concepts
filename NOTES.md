@@ -45,3 +45,15 @@ Some system(e.g, Linux_implement standard threads as processes that happen to sh
 
 > javac Racec.java
 > java Main
+
+Various locking mechanisms:
+
++ A "semphore" restricts the number of threads allowed to access a shared resource(e.g, a shared function), For example, "semaphore"  might allow two threads to access a chunk of code simultaneously, but no more than two, A semaphore is thus a set of permission tickets, which enable a thread to access a resource.
+
+Semaphores as 'tickets' : a semaphore is like a ticket that grants access to a resource.
+a semaphore  with a value of three would grant access to three threads at most at a time.
+
++ A 'mutex' is a semaphore with a value of 1: whichever thread holds the mutex has access to the protected resource, whereas all others are excluded.
+
++ A 'monitor'(which the Java 'symchronized' block provdes) is a mechanism that enforces mutual exclusion. supports progress, and has addition mechanisms for thread cooperation: in java's case, the 'wait' mechanism supports quiet waiting for a lock to be released, and the 'notify' mechanism notifies waiters that a lock has been released.
+

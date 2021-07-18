@@ -57,3 +57,17 @@ a semaphore  with a value of three would grant access to three threads at most a
 
 + A 'monitor'(which the Java 'symchronized' block provdes) is a mechanism that enforces mutual exclusion. supports progress, and has addition mechanisms for thread cooperation: in java's case, the 'wait' mechanism supports quiet waiting for a lock to be released, and the 'notify' mechanism notifies waiters that a lock has been released.
 
+
+native versus green thread, and the Global interpreter lock(GIL)
+
++ A 'native thread' is under kernel OS control when it comes to scheduling.
+  + since roughly 2000, Java Thread instances map to 'native' thread (Same for C#)   
+  + C's 'pthreads' (the 'p' for POSIX API standardization) are 'native' threads
++ A 'green thread' (aka 'microthread', 'tasklet') is under a particular langeuage's runtime control
+  + In effect, 'green thread' emulate native thread, and may provide better performance for operations such as thread creation and synchronization
+  + Prior to version 1.9, for example, Ruby's standard implementtaion(CRuby) had only green threads
+  + A GIL is a mechanism(in implementation, a mutex) that a runtime uses to allow only one thread to execute at a time, even in a multithread environment: no thread-level parallelism
+  + the standard implementation of Ruby(CRuby) and Python(CPython) have a GIL.
+
+
+

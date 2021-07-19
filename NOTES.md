@@ -57,3 +57,5 @@ a semaphore  with a value of three would grant access to three threads at most a
 
 + A 'monitor'(which the Java 'symchronized' block provdes) is a mechanism that enforces mutual exclusion. supports progress, and has addition mechanisms for thread cooperation: in java's case, the 'wait' mechanism supports quiet waiting for a lock to be released, and the 'notify' mechanism notifies waiters that a lock has been released.
 
+#  valgrind --tool=helgrind -v --log-file=hg.log ./noddy
+> https://accu.org/journals/overload/21/114/floyd_1867/

@@ -77,3 +77,42 @@ native versus green thread, and the Global interpreter lock(GIL)
 
 > javac accc/*.java
 > java acc.RaceCondition
+
+> pthread_cond_wait
+> thread pool
+
+
+> java.util.concurrent.atomic
+> AtomicInteger
+> AtomicIntegerArray
+> AtomicLong
+> AtomicLongArray
+
+# java.util.concurrent.concurrenthashMap
+
+## same functionality as the ancient Hashtable, but highly efficient
+
+### The map is partitioned; for example, an update locks only part of the map,the updates could occur at the same time if in different partitions
+### retrieval operations generally don't block;
+### the whole map cannot be locked in any case
+
+# java.util.concurrent.CopyOnWriteArrayList
+
+## Update operations cause a copy of the underlying array to be made.
+### in effect, an immutable data structure in the spirt of Clojure.
+
+# java.util.concurrent.blockingQueue interface
+
+## A retrieval waits for the queue to become non-empty before retrieving the 1st element.
+## Various implementtaions, e.g, ArrayBlockingQueue and PriorityBlockingQueue
+
+# Executors and thread pools
+
+## The Executor interface provides a single method, execute, designed to replace the old Thread idiom,
+For example, if reference 'runnable' points to a Runnable object nd 'exec' to an Executor, then
+
+new Thread(runnable).start(); // create a new Thread to run runnable
+
+becomes:
+exec.execute(runnable);  //may use an already existing worker thread to run runnable
+

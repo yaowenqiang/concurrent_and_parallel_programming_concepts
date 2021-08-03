@@ -1,17 +1,20 @@
 package main
-import(
+
+import (
 	"fmt"
 	"math/rand"
 	"runtime"
 	"sync"
 	"sync/atomic"
+	"time"
 )
 
 func report(s string, n int32) {
-	fmt.Println(s,n)
+	fmt.Println(s, n)
 }
 
 func main() {
+	rand.Seed(time.Now().UTC().UnixNano())
 	var balance int32 = 0
 	var lock = &sync.Mutex{}
 	var increments int32 = 0
@@ -58,5 +61,5 @@ func main() {
 	report("Final balance:               ", balance)
 	report("Total increments:            ", increments)
 	report("Final decrements:            ", decrements)
-	report("Difference in incr and decr: ", increments - decrements)
+	report("Difference in incr and decr: ", increments-decrements)
 }
